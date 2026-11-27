@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Collectible
   value: 10
+  pickupFx: {fileID: 8854058958013076675, guid: 28d9bac85004bba4eb130b71f338da39, type: 3}
