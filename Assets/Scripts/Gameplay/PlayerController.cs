@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
         Vector2 target = rb.position + input * speed * Time.fixedDeltaTime;
         target.x = Mathf.Clamp(target.x, -halfBounds.x, halfBounds.x);
         target.y = Mathf.Clamp(target.y, -halfBounds.y, halfBounds.y);
+
+        Debug.DrawRay(rb.position, input * 2f, Color.green); // dirección de movimiento
+
         rb.MovePosition(target);
     }
 
@@ -45,5 +48,11 @@ public class PlayerController : MonoBehaviour
         v.y = Input.GetAxisRaw("Vertical");
 #endif
         return v.normalized;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireCube(Vector3.zero, new Vector3(halfBounds.x * 2f, halfBounds.y * 2f, 0f));
     }
 }
